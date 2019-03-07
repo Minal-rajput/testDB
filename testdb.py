@@ -4,7 +4,7 @@ conn=mysql.connector.connect(user="root",password="root123",host="localhost",dat
 
 mycursor=conn.cursor()
 
-mycursor.execute("Drop table if exists Employee")
+mycursor.execute("Drop table if exists EMPLOYEE")
 
 sql = """CREATE TABLE EMPLOYEE (
          FIRST_NAME  CHAR(20) NOT NULL,
@@ -15,7 +15,7 @@ mycursor.execute(sql)
 
 print("Table created successfully")
 
-insertsql=""" insert into employee(First_Name,
+insertsql=""" insert into EMPLOYEE(First_Name,
               Last_Name,Salary)
               Values('Minal','T','14000')"""
 
@@ -28,6 +28,15 @@ except:
     print("Record Rolled Back")
 
 
+selectsql=""" Select * from EMPLOYEE """
+
+mycursor.execute(selectsql)
+
+result=mycursor.fetchone()
+
+print(result[0])
+print(result[1])
+print(result[2])
     
 
 
