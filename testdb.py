@@ -1,5 +1,5 @@
 import mysql.connector
-
+# below are hre connection details
 conn=mysql.connector.connect(user="root",password="root123",host="localhost",database="testcompany")
 
 mycursor=conn.cursor()
