@@ -1,6 +1,7 @@
 import mysql.connector
 # below are hre connection details
-conn=mysql.connector.connect(user="root",password="root123",host="localhost",database="testcompany")
+#conn=mysql.connector.connect(user="root",password="root123",host="localhost",database="testcompany")
+conn=mysql.connector.connect(user="abc",password="rajesh",host="localhost",database="testcompany")
 
 mycursor=conn.cursor()
 
@@ -19,8 +20,17 @@ insertsql=""" insert into EMPLOYEE(First_Name,
               Last_Name,Salary)
               Values('Minal','T','14000')"""
 
+mycursor.execute(insertsql)
+
+#mycursor=conn.cursor()
+
+insertsql="""insert into EMPLOYEE(First_Name,Last_Name,Salary) \
+                  Values('Rishita','T',25000)"""
+
+
+
 try:
-    mycursor.execute(insertsql)
+    mycursor.execute(insertsql)    
     print("Record Inserted Successfully")
     conn.commit()
 except:
@@ -32,11 +42,11 @@ selectsql=""" Select * from EMPLOYEE """
 
 mycursor.execute(selectsql)
 
-result=mycursor.fetchone()
+result=mycursor.fetchall()
 
-print(result[0])
-print(result[1])
-print(result[2])
+for rec in result:
+    print("Name - %s %s, Salary - %d")%(rec[0], rec[1],rec[2])
+
     
 
 
