@@ -3,6 +3,7 @@ import mysql.connector
 conn=mysql.connector.connect(user="root",password="root123",host="localhost",database="testcompany")
 #conn=mysql.connector.connect(user="abc",password="rajesh",host="localhost",database="testcompany")
 
+#cursor created
 mycursor=conn.cursor()
 
 mycursor.execute("Drop table if exists EMPLOYEE")
